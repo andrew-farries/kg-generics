@@ -29,3 +29,20 @@ func TestStringifyTo_PrintsResultOfStringMethodToSuppliedWriter(t *testing.T) {
 func TestDouble(t *testing.T) {
 	fmt.Println(stringy.Double(2))
 }
+
+func TestFarm(t *testing.T) {
+	var f stringy.Farm[stringy.Cow] = []stringy.Cow{{Moo: "moo"}}
+
+	// but you can't do
+	// Can't use Animal outside a type constraint.
+	// (it's not a type, it's a contract - the new kind of Go interface)
+	// (only 'classic' interfaces can be used this way)
+	// var g stringy.Farm[stringy.Animal] = []stringy.Cow{{Moo: "moo"}}
+
+	fmt.Println(f)
+}
+
+func TestDoubleApprox(t *testing.T) {
+	x := stringy.MyInt(4)
+	fmt.Println(stringy.DoubleApprox(x))
+}
