@@ -1,6 +1,7 @@
 package stack_test
 
 import (
+	"fmt"
 	"stack"
 	"testing"
 
@@ -41,4 +42,18 @@ func TestPopReturnsNotOKOnEmptyStack(t *testing.T) {
 	if ok {
 		t.Fatal("Pop returned ok on empty stack")
 	}
+}
+
+func TestSet(t *testing.T) {
+	s := stack.NewSet[int](3)
+
+	s.Add(1)
+	s.Add(2)
+
+	fmt.Println(s.Contains(1))
+	fmt.Println(s.Contains(3))
+	fmt.Println(s.Members())
+	fmt.Println(s)
+	fmt.Println(s.Union(stack.NewSet([]int{4, 5, 6}...)))
+	fmt.Println(s.Intersection(stack.NewSet([]int{1, 5, 6}...)))
 }
