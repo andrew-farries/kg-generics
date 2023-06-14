@@ -2,6 +2,7 @@ package dupes_test
 
 import (
 	"dupes"
+	"fmt"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -25,4 +26,8 @@ func TestDupesIsFalseWhenInputContainsNoDuplicates(t *testing.T) {
 	if !cmp.Equal(want, got) {
 		t.Error(cmp.Diff(want, got))
 	}
+}
+
+func TestMax(t *testing.T) {
+	fmt.Println(dupes.Max([]int{1, 3, 2}))
 }
