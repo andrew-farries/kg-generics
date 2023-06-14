@@ -1,3 +1,10 @@
 package print
 
-// Your PrintAnythingTo function goes here!
+import (
+	"fmt"
+	"io"
+)
+
+func PrintAnythingTo[T any](w io.Writer, x T) {
+	fmt.Fprintln(w, x)
+}
