@@ -2,6 +2,7 @@ package stringy_test
 
 import (
 	"bytes"
+	"fmt"
 	"stringy"
 	"testing"
 
@@ -23,4 +24,8 @@ func TestStringifyTo_PrintsResultOfStringMethodToSuppliedWriter(t *testing.T) {
 	if !cmp.Equal(want, got) {
 		t.Error(cmp.Diff(want, got))
 	}
+}
+
+func TestDouble(t *testing.T) {
+	fmt.Println(stringy.Double(2))
 }
