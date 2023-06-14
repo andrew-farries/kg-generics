@@ -2,4 +2,6 @@ package group
 
 type Group[E any] []E
 
-// Your Len function goes here!
+func Len[E any](g Group[E]) int {
+	return len(g)
+}
