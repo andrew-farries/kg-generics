@@ -1,6 +1,7 @@
 package product_test
 
 import (
+	"fmt"
 	"product"
 	"testing"
 
@@ -33,4 +34,12 @@ func TestProductOfComplex2Plus3iAnd3Plus2iIs0Plus13i(t *testing.T) {
 	if !cmp.Equal(want, got) {
 		t.Error(cmp.Diff(want, got))
 	}
+}
+
+func TestAddAnything(t *testing.T) {
+	fmt.Println(product.AddAnything(1, 2))
+}
+
+func TestEqual(t *testing.T) {
+	fmt.Println(product.Equal(true, false))
 }
