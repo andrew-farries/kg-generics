@@ -1,6 +1,10 @@
 package merge
 
-import "golang.org/x/exp/maps"
+import (
+	"fmt"
+
+	"golang.org/x/exp/maps"
+)
 
 func Merge[K comparable, T any](ms ...map[K]T) map[K]T {
 	dst := map[K]T{}
@@ -9,4 +13,12 @@ func Merge[K comparable, T any](ms ...map[K]T) map[K]T {
 		maps.Copy(dst, m)
 	}
 	return dst
+}
+
+type MyMap map[string]int
+
+type MySlice []int
+
+func DoSomething[T any](xs []T) {
+	fmt.Printf("doing something with %v\n", xs)
 }

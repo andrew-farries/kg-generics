@@ -56,3 +56,28 @@ func TestMergeCorrectlyMergesThreeMapsOfStringToAny(t *testing.T) {
 		t.Error(cmp.Diff(want, got))
 	}
 }
+
+func TestMergeMyMap(t *testing.T) {
+	t.Parallel()
+	m1 := map[string]int{"a": 2}
+	m2 := merge.MyMap{"b": 3}
+
+	want := map[string]int{
+		"a": 2,
+		"b": 3,
+	}
+	got := merge.Merge(m1, m2)
+	if !cmp.Equal(want, got) {
+		t.Error(cmp.Diff(want, got))
+	}
+}
+
+func TestDoSomething(t *testing.T) {
+	t.Parallel()
+
+	merge.DoSomething([]int{1, 2, 3})
+	merge.DoSomething([]string{"foo", "bar", "baz"})
+
+	xs := merge.MySlice{10, 11, 12}
+	merge.DoSomething(xs)
+}
